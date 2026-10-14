@@ -1,0 +1,10 @@
+const express = require('express');
+const { protect } = require('../middleware/auth');
+const { validateBody } = require('../middleware/validate');
+const { reviewSchema } = require('../validation/schemas');
+const ctrl = require('../controllers/reviewController');
+const router = express.Router();
+router.get('/property/:propertyId', ctrl.getForProperty);
+router.get('/property/:propertyId/summary', ctrl.getSummary);
+router.post('/property/:propertyId', protect, validateBody(reviewSchema), ctrl.create);
+module.exports = router;

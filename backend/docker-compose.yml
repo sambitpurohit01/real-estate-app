@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo:7
+    container_name: keystone-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - keystone_mongo_data:/data/db
+volumes:
+  keystone_mongo_data:

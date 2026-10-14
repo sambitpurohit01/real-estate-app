@@ -1,0 +1,564 @@
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 64px 0 40px;
+  border-bottom: 1px solid var(--border-strong);
+  background: var(--paper-raised);
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.05;
+  max-width: 720px;
+}
+
+.hero .hero-sub {
+  margin-top: 16px;
+  max-width: 540px;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.hero .eyebrow {
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* ---------- Search / Filters ---------- */
+
+.filters {
+  margin-top: 32px;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  align-items: end;
+  box-shadow: 0 1px 2px var(--shadow);
+}
+
+.filters .field {
+  margin-bottom: 0;
+}
+
+.filters .filter-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.results-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 36px 0 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.results-count {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Property grid & cards ---------- */
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.property-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.property-card:hover {
+  box-shadow: 0 10px 24px var(--shadow);
+  transform: translateY(-2px);
+}
+
+.property-card .card-photo {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--paper);
+  position: relative;
+}
+
+.property-card .card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--ink);
+  color: var(--paper-raised);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+.card-fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.card-body {
+  padding: 16px 18px 0;
+}
+
+.card-body h3 {
+  font-size: 1.12rem;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.card-location {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.card-price {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--brass-dark);
+  margin-top: 10px;
+}
+
+.card-price .per-period {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-left: 4px;
+}
+
+/* the deed strip — signature element: perforated measurement line */
+.deed-strip {
+  margin-top: 14px;
+  border-top: 1px dashed var(--border-strong);
+  padding: 12px 18px 16px;
+  display: flex;
+  gap: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+}
+
+.deed-strip span {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.deed-strip .val {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ---------- Property detail page ---------- */
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+  margin-top: 28px;
+}
+
+@media (max-width: 900px) {
+  .detail-grid { grid-template-columns: 1fr; }
+}
+
+.detail-gallery {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.detail-gallery .main-photo {
+  aspect-ratio: 16/10;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.detail-gallery .main-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb-row {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--card);
+}
+
+.thumb-row img {
+  width: 76px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 2px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 1px solid var(--border);
+}
+
+.thumb-row img.active {
+  opacity: 1;
+  border-color: var(--brass);
+}
+
+.detail-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 26px;
+}
+
+.detail-title-row h1 {
+  font-size: 1.9rem;
+  max-width: 560px;
+}
+
+.detail-price {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--brass-dark);
+  white-space: nowrap;
+}
+
+.spec-table {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.spec-table .spec-cell {
+  padding: 14px;
+  border-right: 1px solid var(--border);
+  background: var(--card);
+}
+.spec-table .spec-cell:last-child { border-right: none; }
+
+.spec-cell .spec-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.spec-cell .spec-value {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.detail-section {
+  margin-top: 32px;
+}
+
+.detail-section h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.amenity-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.amenity-list li {
+  background: var(--paper-raised);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+}
+
+.owner-card {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  position: sticky;
+  top: 92px;
+  height: fit-content;
+}
+
+.owner-card .owner-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.owner-card .owner-role {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.owner-card .owner-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.listing-owner-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* ---------- My Listings / Favorites list rows ---------- */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 1.8rem;
+}
+
+/* ---------- Stars ---------- */
+
+.star-display, .star-input {
+  display: inline-flex;
+  gap: 2px;
+  line-height: 1;
+}
+
+.star-display .star-filled,
+.star-input .star-filled {
+  color: var(--brass);
+}
+
+.star-display .star-empty,
+.star-input .star-empty {
+  color: var(--border-strong);
+}
+
+.star-input button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+/* ---------- Reviews ---------- */
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.review-item {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.review-item-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.review-avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--hedge);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.review-author {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.review-form {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- Inquiries / Messages ---------- */
+
+.inquiry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.inquiry-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  cursor: pointer;
+}
+
+.inquiry-unread {
+  border-color: var(--brass);
+  background: #FFFBF3;
+}
+
+.inquiry-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.inquiry-property {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.inquiry-property a {
+  color: var(--brass-dark);
+  font-weight: 600;
+}
+
+.inquiry-sender {
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.inquiry-badge {
+  background: var(--brass);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ---------- Maps ---------- */
+
+.property-map-container,
+.location-picker-map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+}
+
+.leaflet-container {
+  font-family: var(--font-body);
+}
+
+/* ---------- Pagination ---------- */
+
+.load-more-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.view-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.view-toggle button {
+  background: var(--card);
+  border: none;
+  padding: 7px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--ink-soft);
+  border-right: 1px solid var(--border-strong);
+}
+.view-toggle button:last-child { border-right: none; }
+.view-toggle button.active {
+  background: var(--ink);
+  color: var(--paper-raised);
+}
+
+.home-map-container {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+}
+
+.map-popup-link {
+  background: none;
+  border: none;
+  color: var(--brass-dark);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0 0;
+  font-size: 0.85rem;
+}
